@@ -1,5 +1,3 @@
-
-
 # accepted args:
 #   'from_sites' : tuple of strings
 #   'ignore_sites' : tuple of strings
@@ -61,6 +59,4 @@ def combine_results(all_results: list) -> list:
             if result['url'] not in unique_urls:
                 combined.append(result)
                 unique_urls.add(result['url'])
-    return(combined)
-
-
+    return combined
