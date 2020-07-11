@@ -1,14 +1,11 @@
 import requests
 import json
+import os
+import dotenv
 
-key = ''
+dotenv.load_dotenv(dotenv.find_dotenv())
+key = os.getenv('Ocp-Apim-Subscription-Key')
 url = "https://eastus.api.cognitive.microsoft.com/bing/v7.0/suggestions"
-
-with open('../auth.txt', 'r') as file:
-    data = file.read().split(' ')
-    for i, x in enumerate(data):
-        if x == 'Ocp-Apim-Subscription-Key':
-            key = data[i + 1]
 
 headers = {
     'Ocp-Apim-Subscription-Key': key
