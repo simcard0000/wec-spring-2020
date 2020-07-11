@@ -6,8 +6,12 @@ import { IconNames } from "@blueprintjs/icons";
 import "./App.css";
 
 function App() {
-  const searchInput = useRef(null);
-  const SearchButton = <Button intent="success" icon={IconNames.SEARCH}>Search</Button>;
+	const searchInput = useRef(null);
+	const SearchButton = (
+		<Button intent="success" icon={IconNames.SEARCH}>
+			Search
+		</Button>
+	);
 	return (
 		<div className="main">
 			<div className="title-header">
@@ -19,14 +23,20 @@ function App() {
 				<InputGroup
 					className="search-bar"
 					defaultValue="search here!"
-          ref={searchInput}
-          rightElement={SearchButton}
+					ref={searchInput}
+					rightElement={SearchButton}
 				/>
 			</div>
-      <div className="results-body">
-        //in that list of dictionaries, get the length and print.
-        <Card id="" interactive="true"></Card>
-      </div>
+			<br></br>
+			<div className="results-body">
+				<Card className="results-card" id="" interactive="true">
+					<h2>title</h2>
+					<h3>
+						<a href="">link</a>
+					</h3>
+					<h4>snippet</h4>
+				</Card>
+			</div>
 		</div>
 	);
 }
