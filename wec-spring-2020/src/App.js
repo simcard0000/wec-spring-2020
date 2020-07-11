@@ -6,14 +6,14 @@ import { IconNames } from "@blueprintjs/icons";
 import "./App.css";
 
 function App() {
-  const removeWebsite = useRef(null);
-  const findWebsite = useRef(null);
+	const removeWebsite = useRef(null);
+	const findWebsite = useRef(null);
 	const searchInput = useRef(null);
 	let resultsArray = [];
 	const onSearchClick = () => {
 		if (searchInput.current != null) {
 			fetch("/search?query=Hello", {
-        method: "GET",
+				method: "GET",
 			}).then(function (response) {
 				if (response.ok) {
 					console.debug(response.json());
@@ -47,36 +47,42 @@ function App() {
 			<br></br>
 
 			<div className="options-body">
-			    <h3 class="h3-general">Advanced Options:</h3>
-			    <div className="left-options-body" >
-			        <h5>Remove from Query</h5>
-			        <InputGroup
-			            className="options-field"
-			            defaultValue=""
-			            placeholder="URLS separated by commas"
-			            ref={removeWebsite}
-			        />
-			    </div>
-			    <div className="right-options-body" >
-			        <h5>Find from Query</h5>
-			        <InputGroup
-			            className="options-field"
-			            defaultValue=""
-			            placeholder="URLS separated by commas"
-			            ref={findWebsite}
-			        />
-			    </div>
+				<h3 class="h3-general">Advanced Options:</h3>
+				<div className="left-options-body">
+					<h5>Remove from Query</h5>
+					<InputGroup
+						className="options-field"
+						defaultValue=""
+						placeholder="URLS separated by commas"
+						ref={removeWebsite}
+					/>
+				</div>
+				<div className="right-options-body">
+					<h5>Find from Query</h5>
+					<InputGroup
+						className="options-field"
+						defaultValue=""
+						placeholder="URLS separated by commas"
+						ref={findWebsite}
+					/>
+				</div>
 			</div>
 
 			<br></br>
 
 			<div className="results-body">
 				<Card className="results-card" id="" interactive="true">
-					<h2>title</h2>
+					<h2>Calculus III - Triple Integrals</h2>
 					<h3>
-						<a href="">link</a>
+						<a href="https://tutorial.math.lamar.edu/classes/calciii/tripleintegrals.aspx">
+							link
+						</a>
 					</h3>
-					<h4>snippet</h4>
+					<h4>
+						'Jun 1, 2018 ... Section 4-5 : Triple Integrals. Now that we know
+						how to integrate over a two-\ndimensional region we need to move on
+						to integrating over a\xa0...'
+					</h4>
 				</Card>
 			</div>
 		</div>
