@@ -15,7 +15,6 @@ def get_credentials() -> tuple:
 # Extracts only relevant content from results json and returns a 
 # list of dict objects each containing the following content:
 # - title
-# - link (aka display link)
 # - snippet
 # - url (aka formatted url)
 def get_filtered_results(results_json: dict) -> list:
@@ -25,7 +24,6 @@ def get_filtered_results(results_json: dict) -> list:
     for item in items:
         search_result = {
             'title': item['title'] if 'title' in item else None,
-            'link': item['displayLink'] if 'displayLink' in item else None,
             'snippet': item['snippet'] if 'snippet' in item else None,
             'url': item['formattedUrl'] if 'formattedUrl' in item else None
         }
