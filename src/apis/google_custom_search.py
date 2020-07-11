@@ -64,8 +64,3 @@ class GoogleCustomSearch():
         print('Number of results:', len(filtered_results))
         with open('testing_data/filtered_results.json', 'w') as f:
             f.write(json.dumps(filtered_results, indent=4))
-
-
-if __name__ == '__main__':
-    x = GoogleCustomSearch()
-    x.test_search()
