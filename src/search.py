@@ -21,10 +21,10 @@ class SearchHandler:
             args['ignore_sites'] = ignore_sites
 
         results.append(self.googleCustom.search(query))
-        results.append(self.googleScholar.search(query))
+        scholar_results = self.googleScholar.search(query)
+        scholar_results.append('TRUSTED')
+        results.append(scholar_results)
 
         filtered = self.resultFilter.filter(results, args)
         return filtered
-
-
 
