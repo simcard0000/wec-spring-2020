@@ -7,6 +7,8 @@ import "./App.css";
 
 function App() {
   const searchInput = useRef(null);
+  const removeWebsite = useRef(null);
+  const findWebsite = useRef(null);
   const onSearchClick = () => {
     
   };
@@ -25,12 +27,39 @@ function App() {
 			<div className="search-body">
 				<InputGroup
 					className="search-bar"
-					defaultValue="search here!"
+					defaultValue=""
+					placeholder="search here!"
 					ref={searchInput}
 					rightElement={SearchButton}
 				/>
 			</div>
+
 			<br></br>
+
+			<div className="options-body">
+			    <h3 class="h3-general">Advanced Options:</h3>
+			    <div className="left-options-body" >
+			        <h5>Remove from Query</h5>
+			        <InputGroup
+			            className="options-field"
+			            defaultValue=""
+			            placeholder="URLS separated by commas"
+			            ref={removeWebsite}
+			        />
+			    </div>
+			    <div className="right-options-body" >
+			        <h5>Find from Query</h5>
+			        <InputGroup
+			            className="options-field"
+			            defaultValue=""
+			            placeholder="URLS separated by commas"
+			            ref={findWebsite}
+			        />
+			    </div>
+			</div>
+
+			<br></br>
+
 			<div className="results-body">
 				<Card className="results-card" id="" interactive="true">
 					<h2>title</h2>

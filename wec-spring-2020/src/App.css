@@ -5,6 +5,11 @@
 	padding: 0px;
 }
 
+.h3-general {
+    padding-bottom: 0px;
+    margin: 0px;
+}
+
 .title-header {
 	display: flex;
 	flex-direction: row;
@@ -38,4 +43,28 @@
 .results-card {
 	width: 500px;
 	font-family: "Oxygen", sans-serif;
+}
+
+.options-body {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    align-items: left;
+}
+
+.left-options-body {
+    display: inline-block !important;
+    float: left;
+}
+
+.right-options-body {
+    display: inline-block !important;
+    float: right;
+}
+
+.options-field {
+    width: 200px;
+    padding: 0px;
+    margin: 0px;
 }
