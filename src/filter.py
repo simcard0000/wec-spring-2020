@@ -1,3 +1,20 @@
+
+
+# accepted args:
+#   'from_sites' : tuple of strings
+#   'ignore_sites' : tuple of strings
+
+# to bypass filtering for a source, append the string "TRUSTED" to its results list
+def filter(all_results: list, args: dict) -> list:
+    filtered = list()
+    for result_list in all_results:
+        if isinstance(result_list[-1], str) and result_list[-1].upper() == 'TRUSTED':
+            filtered.append(result_list[:-1])
+        else:
+            filtered.append(filter_results(result_list, args))
+    return combine_results(filtered)
+
+
 whitelist = [
     # whitelisted TLDs
     '.edu', '.gov',
@@ -47,14 +64,71 @@ def combine_results(all_results: list) -> list:
     return(combined)
 
 
-# accepted args:
-    # 'from_sites' : tuple of strings
-    # 'ignore_sites' : tuple of strings
-def filter(all_results: list, args: dict) -> list:
-    filtered = list()
-    for result_list in all_results:
-        for x in filter_results(result_list, args):
-            filtered.append(filter_results(result_list, args))
-    return combine_results(filtered)
+y = filter([[
+    {
+        "title": "Cat | global-selector | Caterpillar",
+        "link": "www.cat.com",
+        "snippet": "Genuine enabler of sustainable world progress and opportunity, defined by the \nbrand attributes of global leadership, innovation and sustainability.",
+        "url": "https://www.cat.com/"
+    },
+    {
+        "title": "Cat - Wikipedia",
+        "link": "en.wikipedia.org",
+        "snippet": "The cat (Felis catus) is a domestic species of small carnivorous mammal. It is the \nonly domesticated species in the family Felidae and is often referred to as the\u00a0...",
+        "url": "https://en.wikipedia.org/wiki/Cat"
+    },
+    {
+        "title": "Cat Footwear: Caterpillar Work Boots - Comfortable Work Shoes",
+        "link": "www.catfootwear.com",
+        "snippet": "Official Cat Footwear Site - Shop Caterpillar work boots, steel toe work boots & \nshoes along with casual shoes & casual boots. Free shipping!",
+        "url": "https://www.catfootwear.com/US/en/home"
+    },
+    {
+        "title": "Caterpillar | Caterpillar",
+        "link": "www.caterpillar.com",
+        "snippet": "5 days ago ... Caterpillar Inc. Company information, investor information, news and careers. Cat \nproducts and services. Dow Jones Top 30. NYSE Symbol\u00a0...",
+        "url": "https://www.caterpillar.com/en.html"
+    }],
+    [{
+        "title": "Cats are so funny you will die laughing - Funny cat compilation ...",
+        "link": "www.youtube.com",
+        "snippet": "Dec 24, 2016 ... Cats are simply the funniest and most hilarious pets, they make us laugh all the \ntime! Just look how all these cats & kittens play, fail, get along\u00a0...",
+        "url": "https://www.youtube.com/watch?v=5dsGWM5XGdg"
+    },
+    {
+        "title": "Cat phones: Rugged Phones",
+        "link": "www.catphones.com",
+        "snippet": "Welcome to Cat\u00ae phones. Discover a range of rugged phones with waterproof, \ndust and drop proof features & long battery life built to last.",
+        "url": "https://www.catphones.com/"
+    },
+    {
+        "title": "Cat and Dog Road Trip - YouTube",
+        "link": "www.youtube.com",
+        "snippet": "Feb 5, 2020 ... Prince Michael and his new friend, Bob, set out for a road trip in the brand new \nfilm Cat and Dog Road Trip. Turn on Closed Captions for Prince\u00a0...",
+        "url": "https://www.youtube.com/watch?v=o1YA_6tXs5E"
+    },
+    {
+        "title": "Cat Care | Grooming | Nutrition | Disease | Behavior | ASPCA",
+        "link": "www.aspca.org",
+        "snippet": "Cat Care. Do you have a feline companion? We've got you covered. Our ASPCA \nveterinarians and behaviorists offer up tips, solutions and answers to some of\u00a0...",
+        "url": "https://www.aspca.org/pet-care/cat-care"
+    },
+    {
+        "title": "World's First Cat Lifeguard - YouTube",
+        "link": "www.youtube.com",
+        "snippet": "Sep 12, 2019 ... Aaron's Animals - World's First Cat Lifeguard Prince Michael sets to achieve his \ngoal of becoming the world's first cat lifeguard. Turn on Closed\u00a0...",
+        "url": "https://www.youtube.com/watch?v=x3sUOqHkNt4"
+    },
+    {
+        "title": "Cat Health Center | Cat Care and Information from WebMD",
+        "link": "pets.webmd.com",
+        "snippet": "WebMD veterinary experts provide comprehensive information about cat health \ncare, offer nutrition and feeding tips, and help you identify illnesses in cats.",
+        "url": "https://pets.webmd.com/cats/default.htm"
+    }
+]], {'ignore_sites': ('cat.com',)}
+)
+
+for x in y:
+    print(x['url'])
 
 
