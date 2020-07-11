@@ -6,9 +6,12 @@ import { IconNames } from "@blueprintjs/icons";
 import "./App.css";
 
 function App() {
-	const searchInput = useRef(null);
+  const searchInput = useRef(null);
+  const onSearchClick = () => {
+    
+  };
 	const SearchButton = (
-		<Button intent="success" icon={IconNames.SEARCH}>
+		<Button intent="success" icon={IconNames.SEARCH} onClick={onSearchClick()}>
 			Search
 		</Button>
 	);
