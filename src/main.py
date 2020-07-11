@@ -11,8 +11,8 @@ class SearchHandler:
         self.googleCustom = GoogleCustomSearch()
         self.googleScholar = GoogleScholar()
 
-
-    def search(self, query: str, from_sites: tuple=None, ignore_sites: tuple=None):
+    # returns a list of dictionaries for results
+    def search(self, query: str, from_sites: tuple=None, ignore_sites: tuple=None) -> list:
         args = dict()
         results = list()
         if from_sites:
