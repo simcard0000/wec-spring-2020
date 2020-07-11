@@ -1,19 +1,29 @@
 /** @format */
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { Button, InputGroup, Card, Elevation } from "@blueprintjs/core";
 import { IconNames } from "@blueprintjs/icons";
 import "./App.css";
 
 function App() {
-  const searchInput = useRef(null);
   const removeWebsite = useRef(null);
   const findWebsite = useRef(null);
-  const onSearchClick = () => {
-    
-  };
+	const searchInput = useRef(null);
+	let resultsArray = [];
+	const onSearchClick = () => {
+		if (searchInput.current != null) {
+			fetch("/search?query=Hello", {
+        method: "GET",
+			}).then(function (response) {
+				if (response.ok) {
+					console.debug(response.json());
+				}
+				//return response.json();
+			});
+		}
+	};
 	const SearchButton = (
-		<Button intent="success" icon={IconNames.SEARCH} onClick={onSearchClick()}>
+		<Button intent="success" icon={IconNames.SEARCH} onClick={onSearchClick}>
 			Search
 		</Button>
 	);
