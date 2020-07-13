@@ -9,6 +9,7 @@
 - [ ] clean up the UI and front-end code
 - [ ] maybe change stack so that we're not using two back-end languages
 - [ ] pick a name for the product and stick with it 🤣
+- [ ] implement autocomplete out front
 
 ### Current Stack
 
