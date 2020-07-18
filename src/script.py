@@ -1,4 +1,5 @@
 import sys
+import json
 from search import SearchHandler 
 
 query = ''
@@ -18,4 +19,4 @@ for i, x in enumerate(sys.argv):
 handler = SearchHandler()
 results = handler.search(query, from_sites=from_sites, ignore_sites=ignore_sites)
 
-print(results)
+print(json.dumps(results))

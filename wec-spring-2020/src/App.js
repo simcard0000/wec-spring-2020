@@ -12,14 +12,14 @@ function App() {
 	let resultsArray = [];
 	const onSearchClick = () => {
 		if (searchInput.current != null) {
-			fetch("/search?query=Hello", {
-				method: "GET",
-			}).then(function (response) {
-				if (response.ok) {
-					console.debug(response.json());
+			fetch("http://localhost:3000/search?query=Hello")
+				.then(function (response) {
+					if (response.ok) {
+						console.log(response.json());
+					}
+					//return response.json();
 				}
-				//return response.json();
-			});
+			);
 		}
 	};
 	const SearchButton = (
